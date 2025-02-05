@@ -22,7 +22,7 @@ System.setProperty("webdriver.edge.driver", "C:/WebDriver/msedgedriver.exe");
 ```
 3. Clone este repositório:
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/OtavioRdR/BUG-BANK.git
 ```
 4. Abra o projeto em sua IDE preferida (IntelliJ, Eclipse, VS Code, etc.).
 
