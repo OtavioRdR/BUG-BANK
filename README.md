@@ -32,7 +32,7 @@ Para executar os testes, siga os passos abaixo:
 5. **Execute os testes:** Navegue até a pasta do projeto no terminal e execute os testes com o comando `mvn test`.
 
 ## 📂 Documentos Anexos
-- [BDD - Testes](BUG-BANK/blob/main/📌%20BDD.pdf): Documento com a descrição dos cenários de teste (Behavior Driven Development).
+- [BDD - Testes](BUG-BANK/blob/main/BDD.pdf): Documento com a descrição dos cenários de teste (Behavior Driven Development).
 - [Evidência do Bug](path/to/evidencia_do_bug.doc): Relatório com as evidências dos bugs encontrados durante a execução dos testes.
 
 ## 📝 Exemplo de Código de Teste
