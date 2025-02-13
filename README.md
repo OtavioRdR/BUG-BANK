@@ -1,56 +1,78 @@
-# Testes Automatizados com Selenium e JUnit
+# 📄 README - Testes Automatizados do BugBank
 
-Este repositório contém testes automatizados para a aplicação [BugBank](https://bugbank.netlify.app/) utilizando Selenium WebDriver e JUnit.
+## 📌 Sobre
+Este projeto contém testes automatizados para validar as principais funcionalidades do BugBank, um sistema de banco digital. Os testes foram implementados utilizando Selenium WebDriver e JUnit, proporcionando uma abordagem eficiente para garantir a qualidade do software.
 
-## 📌 Tecnologias Utilizadas
-- Java
-- Selenium WebDriver
-- JUnit 5
-- Microsoft Edge WebDriver
+## 📋 Testes Implementados
+Os seguintes cenários de teste foram cobertos:
+- **Cadastro de novo usuário:** Verifica se um novo usuário pode se cadastrar com sucesso.
+- **Login com usuário cadastrado:** Confirma se um usuário cadastrado pode fazer login.
+- **Login com senha errada:** Testa a resposta do sistema ao tentar login com senha incorreta.
+- **Login com email inexistente:** Verifica a reação do sistema ao tentar login com um email que não está registrado.
+- **Saque sem saldo:** Avalia se o sistema impede saques quando não há saldo disponível.
+- **Visualização de extrato:** Verifica se o usuário pode visualizar seu extrato bancário.
+- **Transferência entre contas:** Testa a funcionalidade de transferência de fundos entre contas.
+- **Visualização de saldo:** Confirma se o usuário consegue ver o saldo da conta.
+- **Logout:** Garante que o usuário pode se desconectar do sistema.
+- **Cadastro com email já cadastrado:** Verifica se o sistema impede o cadastro com um email já utilizado.
 
-## 📋 Pré-requisitos
-Antes de executar os testes, certifique-se de ter instalado:
-- [Java JDK 8+](https://www.oracle.com/java/technologies/javase-downloads.html)
-- [Maven](https://maven.apache.org/download.cgi) (caso esteja utilizando gerenciamento de dependências)
-- [Microsoft Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
+## 🛠 Tecnologias Utilizadas
+As seguintes tecnologias e ferramentas foram utilizadas no desenvolvimento dos testes:
+- **Java:** Linguagem de programação utilizada para implementar os testes.
+- **Selenium WebDriver:** Ferramenta para automação de navegadores web.
+- **JUnit:** Framework de testes para Java.
+- **EdgeDriver:** WebDriver utilizado para automatizar o navegador Microsoft Edge.
 
-## 🚀 Configuração
-1. Baixe e instale o WebDriver compatível com sua versão do Microsoft Edge.
-2. Atualize o caminho do WebDriver no código:
+## 🚀 Como executar os testes
+Para executar os testes, siga os passos abaixo:
+1. **Instale o Java JDK:** Certifique-se de ter o Java Development Kit instalado em sua máquina.
+2. **Instale o Maven:** Se necessário, instale o Maven para gerenciar as dependências do projeto.
+3. **Configure o WebDriver:** Baixe e configure o WebDriver no caminho correto (por exemplo, `C:/WebDriver/msedgedriver.exe`).
+4. **Clone este repositório:** Faça o clone deste repositório para sua máquina local.
+5. **Execute os testes:** Navegue até a pasta do projeto no terminal e execute os testes com o comando `mvn test`.
+
+## 📂 Documentos Anexos
+- [BDD - Testes](path/to/bdd.doc): Documento com a descrição dos cenários de teste (Behavior Driven Development).
+- [Evidência do Bug](path/to/evidencia_do_bug.doc): Relatório com as evidências dos bugs encontrados durante a execução dos testes.
+
+## 📝 Exemplo de Código de Teste
+
+Aqui está um exemplo de como os testes foram implementados:
+
 ```java
-System.setProperty("webdriver.edge.driver", "C:/WebDriver/msedgedriver.exe");
-```
-3. Clone este repositório:
-```bash
-git clone https://github.com/OtavioRdR/BUG-BANK.git
-```
-4. Abra o projeto em sua IDE preferida (IntelliJ, Eclipse, VS Code, etc.).
+import org.openqa.selenium.*;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-## 🧪 Cenário de Teste
-### Teste de Login
-Este teste verifica se um usuário consegue fazer login na aplicação.
-- Preenche o campo de e-mail
-- Preenche a senha
-- Clica no botão de login
-- Valida se a mensagem de erro é exibida
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class BugBankTestSuite {
+    private static WebDriver driver;
 
-## ▶️ Executando os Testes
-Para rodar os testes, utilize sua IDE ou execute pelo terminal com:
-```bash
-mvn test
-```
+    @BeforeAll
+    public static void setUp() {
+        System.setProperty("webdriver.edge.driver", "C:/WebDriver/msedgedriver.exe");
+        driver = new EdgeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://bugbank.netlify.app/");
+    }
 
-## 📄 Estrutura do Projeto
-```
-├── src
-│   ├── test
-│   │   ├── java
-│   │   │   ├── LoginTest.java
-├── pom.xml (caso use Maven)
-├── README.md
-```
+    @AfterAll
+    public static void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
-## 🛠 Possíveis Melhorias
-- Adicionar mais cenários de teste (ex.: login válido, recuperação de senha, etc.).
-- Implementar Page Object Model (POM) para melhor organização do código.
-- Testes cross-browser com Chrome e Firefox.
+    @Test
+    public void cadastroELogin() {
+        driver = new EdgeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://bugbank.netlify.app/");
+        testCadastroDeNovoUsuario();
+        testLoginComUsuarioCadastrado();
+    }
+
+    // Outros métodos de teste...
+
+}
