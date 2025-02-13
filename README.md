@@ -33,7 +33,7 @@ Para executar os testes, siga os passos abaixo:
 
 ## 📂 Documentos Anexos
 - [BDD - Testes](https://github.com/OtavioRdR/BUG-BANK/blob/main/%F0%9F%93%8C%20BDD.pdf): Documento com a descrição dos cenários de teste (Behavior Driven Development).
-- [Evidência do Bug](path/to/evidencia_do_bug.doc): Relatório com as evidências dos bugs encontrados durante a execução dos testes.
+- [Evidência do Bug](https://github.com/OtavioRdR/BUG-BANK/blob/main/%F0%9F%94%8D%20Evid%C3%AAncia%20do%20Bug.pdf): Relatório com as evidências dos bugs encontrados durante a execução dos testes.
 
 ## 📝 Exemplo de Código de Teste
 
