@@ -15,21 +15,19 @@
     </properties>
 
     <dependencies>
-        <!-- Selenium WebDriver -->
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.11.0</version>
         </dependency>
 
-        <!-- WebDriver Manager (Para gerenciar drivers do navegador automaticamente) -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>5.3.2</version>
         </dependency>
 
-        <!-- JUnit 5 (Para rodar os testes) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
